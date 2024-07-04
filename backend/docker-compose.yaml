@@ -1,0 +1,30 @@
+
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_DB: ${DATABASE_NAME}
+    networks:
+      - intnet
+    expose:
+      - 5432
+    ports:
+      - ${DATABASE_PORT}:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8085:8080
+    networks:
+      - intnet
+    depends_on:
+      - postgres
+
+
+networks:
+  intnet:
