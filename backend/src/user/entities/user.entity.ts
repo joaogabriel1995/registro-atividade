@@ -20,6 +20,9 @@ export class UserEntity {
   @Column({ name: 'password', nullable: false })
   public password: string;
 
+  @Column({ name: 'hourly_rate', nullable: false })
+  public hourlyRate: number;
+
   @Column({ name: 'created_at', nullable: false })
   public createdAt: Date;
 

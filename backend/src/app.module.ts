@@ -4,6 +4,10 @@ import { DatabaseModule } from './database/database.module';
 import { GeneralModule } from './general/general.module';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
+import { CompanyModule } from './company/company.module';
+import { PartnerCompanyModule } from './partner-company/partner-company.module';
+import { ProjectModule } from './project/project.module';
+import { WorkHoursLogModule } from './work-hours-log/work-hours-log.module';
 
 @Module({
   imports: [
@@ -12,6 +16,10 @@ import { AuthModule } from './auth/auth.module';
     DatabaseModule,
     ConfigModule.forRoot(),
     AuthModule,
+    CompanyModule,
+    PartnerCompanyModule,
+    ProjectModule,
+    WorkHoursLogModule,
   ],
   controllers: [],
   providers: [],
