@@ -24,6 +24,7 @@ import { RefreshStrategy } from './strategies/refresh-token.strategy';
       useFactory: async (configService: ConfigService) => {
         return {
           secret: configService.authConfig.token,
+          signOptions: {expiresIn: "30s"}
         };
       },
       inject: [ConfigService],

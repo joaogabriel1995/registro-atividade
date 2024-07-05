@@ -26,7 +26,7 @@ export class SignInUseCase {
     const payload = { sub: user.id, email: email };
     return {
       userId: user.id,
-      accessToken: await this.jwtService.signAsync(payload),
+      accessToken: await this.jwtService.signAsync(payload, {expiresIn: "30s"}),
       refreshToken: await this.jwtService.signAsync(payload, { expiresIn: '7d', secret: this.configService.authConfig.refreshToken }),
     };
   }

@@ -23,11 +23,12 @@ import { ConfigService } from 'src/general/service/config.service';
       id: string
     ): Promise<{ token: string }> {
       const user = await this.userRepository.findUserById(id)
-      const payload = { sub: user.id, email: email };
-
-      return {
-        token: await this.jwtService.signAsync(payload),
-      };
+      if (user){
+        const payload = { sub: user.id, email: email };
+        return {
+          token: await this.jwtService.signAsync(payload),
+        };
+      }
     }
   }
   
